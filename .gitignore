@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+#IDE metadata
+.idea/
+.vscode/
+
+# C extensions
+*.so
+
+node_modules/
+
+media/
+ENV/
+venv/
+local_settings.py
+
+.DS_Store
+.happypack
+dist
+*.log
+coverage
+webpack/webpack-assets.json
+src-example
+package-lock.json
