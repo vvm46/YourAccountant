@@ -120,3 +120,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 # =====================================================
+
+# === FOR SEND MESSAGE FROM CONTACT_US PAGE TO EMAIL ===
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '@gmail.com'  # TODO: register new mail for sending message
+EMAIL_HOST_PASSWORD = 'QwertY123456'
+EMAIL_PORT = 587
+# =======================================================

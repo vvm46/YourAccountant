@@ -121,3 +121,19 @@ class Contacts(models.Model):
 
 	def __str__(self):
 		return self.time_of_work
+
+
+class Applications(models.Model):
+	class Meta:
+		verbose_name = 'Заявка'
+		verbose_name_plural = 'Заявки'
+
+	name = models.CharField(max_length=155, blank=False, null=False)
+	phone = models.CharField(max_length=15, blank=False, null=False)
+	email = models.EmailField(blank=False, null=False)
+	activity = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
+	organizational_form = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
+	tax_system = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
+
+	def __str__(self):
+		return self.name
