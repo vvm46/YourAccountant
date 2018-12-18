@@ -9,6 +9,7 @@ class Title(models.Model):
 	title = models.CharField(max_length=255, blank=False, null=False)
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, blank=True)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
 
 	def __str__(self):
 		return self.title
@@ -24,6 +25,7 @@ class Services(models.Model):
 	text = models.TextField(blank=False, null=False)
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, blank=True)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
 
 	def __str__(self):
 		return self.title
@@ -39,6 +41,7 @@ class AboutUs(models.Model):
 	description = models.TextField(blank=False, null=False)
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, blank=True)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
 
 	def __str__(self):
 		return self.title
@@ -68,6 +71,7 @@ class Advantages(models.Model):
 	text = models.TextField(blank=False, null=False)
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, blank=True)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
 
 	def __str__(self):
 		return self.title
@@ -83,6 +87,37 @@ class HowWeWork(models.Model):
 	text = models.TextField(blank=False, null=False)
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, blank=True)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
 
 	def __str__(self):
 		return self.title
+
+
+class ComplexServices(models.Model):
+	class Meta:
+		verbose_name = 'Комплексне обслуговування'
+		verbose_name_plural = 'Комплексне обслуговування'
+
+	title = models.CharField(max_length=555, blank=False, null=False)
+	subtitle = models.TextField(blank=False, null=False, default=None)
+	additionally = models.TextField(blank=False, null=False, default=None)
+	enabled = models.BooleanField(default=False, help_text='Дозволити відображати на сайті')
+
+	def __str__(self):
+		return self.title
+
+
+class Contacts(models.Model):
+	class Meta:
+		verbose_name = 'Контакти'
+		verbose_name_plural = 'Контакти'
+
+	time_of_work = models.CharField(max_length=255, blank=False, null=False, default=None)
+	street = models.CharField(max_length=255, blank=False, null=False, default=None)
+	email = models.EmailField()
+	phones = models.CharField(max_length=255, blank=False, null=False, default=None)
+	company_footer = models.CharField(max_length=455, blank=False, null=False, default=None)
+	map = models.URLField(blank=False, null=False)
+
+	def __str__(self):
+		return self.time_of_work
