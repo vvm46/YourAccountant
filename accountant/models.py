@@ -133,10 +133,46 @@ class Applications(models.Model):
     name = models.CharField(max_length=155, blank=False, null=False)
     phone = models.CharField(max_length=15, blank=False, null=False)
     email = models.EmailField(blank=False, null=False)
-    activity = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
-    organizational_form = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
-    tax_system = models.CharField(max_length=155, blank=False, null=False)  # TODO: replace to chosen menu
+    activity = models.CharField(max_length=555, blank=True, null=True)
+    organizational_form = models.CharField(max_length=555, blank=True, null=True)
+    tax_system = models.CharField(max_length=555, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+
+class Activities(models.Model):
+    class Meta:
+        verbose_name = 'Вид діяльності'
+        verbose_name_plural = 'Види діяльності'
+
+    title = models.CharField(max_length=555, blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class OrganizationalForm(models.Model):
+    class Meta:
+        verbose_name = 'Організаційна форма'
+        verbose_name_plural = 'Організаційні форми'
+
+    title = models.CharField(max_length=555, blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class TaxSystem(models.Model):
+    class Meta:
+        verbose_name = 'Система опадаткування'
+        verbose_name_plural = 'Системи опадаткування'
+
+    title = models.CharField(max_length=555, blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.title

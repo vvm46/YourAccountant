@@ -2,7 +2,7 @@ from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
 from django.template.defaultfilters import mark_safe
 from accountant.models import Title, Services, AboutUs, Specialization, Advantages, HowWeWork, ComplexServices, \
-    Contacts, Applications
+    Contacts, Applications, Activities, OrganizationalForm, TaxSystem
 
 
 class TitleAdmin(TabbedTranslationAdmin):
@@ -109,6 +109,24 @@ class ApplicationsAdmin(admin.ModelAdmin):
     readonly_fields = ['created']
 
 
+class ActivitiesAdmin(TabbedTranslationAdmin):
+    list_display = ['id', 'title_uk', 'created']
+    list_display_links = ['id', 'title_uk', 'created']
+    readonly_fields = ['created']
+
+
+class OrganizationalFormAdmin(TabbedTranslationAdmin):
+    list_display = ['id', 'title_uk', 'created']
+    list_display_links = ['id', 'title_uk', 'created']
+    readonly_fields = ['created']
+
+
+class TaxSystemAdmin(TabbedTranslationAdmin):
+    list_display = ['id', 'title_uk', 'created']
+    list_display_links = ['id', 'title_uk', 'created']
+    readonly_fields = ['created']
+
+
 admin.site.register(Title, TitleAdmin)
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(AboutUs, AboutUsAdmin)
@@ -118,3 +136,6 @@ admin.site.register(HowWeWork, HowWeWorkAdmin)
 admin.site.register(ComplexServices, ComplexServicesAdmin)
 admin.site.register(Contacts, ContactsAdmin)
 admin.site.register(Applications, ApplicationsAdmin)
+admin.site.register(Activities, ActivitiesAdmin)
+admin.site.register(OrganizationalForm, OrganizationalFormAdmin)
+admin.site.register(TaxSystem, TaxSystemAdmin)
